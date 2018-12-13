@@ -1,8 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-function App () {
-  return <h1>You will never win!</h1>
-}
+import Todo from './todo'
 
-ReactDOM.render(<App />, document.getElementById('root'))
+ReactDOM.render(<Todo />, document.getElementById('root'))
