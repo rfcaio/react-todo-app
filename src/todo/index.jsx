@@ -21,8 +21,8 @@ class Todo extends React.Component {
     return (
       <main className="container">
         <h1>Todo App</h1>
-        <div class="row">
-          <div class="col-md-12">
+        <div className="row">
+          <div className="col-md-12">
             <TodoList todos={this.state.todos} />
           </div>
         </div>
