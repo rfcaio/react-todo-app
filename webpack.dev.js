@@ -1,3 +1,4 @@
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 const path = require('path')
 
 module.exports = {
@@ -7,21 +8,22 @@ module.exports = {
     port: 8001
   },
   devtool: 'inline-source-map',
-  entry: './src/index.jsx',
+  entry: './src/index.js',
   mode: 'development',
   module: {
     rules: [
       { test: /\.css$/, use: ['style-loader', 'css-loader'] },
-      { test: /\.(js|jsx)$/, exclude: /node_modules/, loader: 'babel-loader' },
-      { test: /\.(eot|svg|ttf|woff|woff2)$/, use: ['file-loader'] }
+      { exclude: /node_modules/, test: /\.js$/, use: ['babel-loader'] }
     ]
   },
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, './dist')
   },
-  resolve: {
-    extensions: ['*', '.js', '.jsx']
-  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: 'index.html'
+    })
+  ],
   watch: true
 }
