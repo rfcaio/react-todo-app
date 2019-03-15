@@ -13,10 +13,8 @@ class TodoForm extends React.Component {
 
   onSubmitForm (event) {
     event.preventDefault()
-    this.setState(state => {
-      console.log(state)
-      return { description: '' }
-    })
+    this.props.onSubmitForm(this.state.description)
+    this.setState(() => ({ description: '' }))
   }
 
   render () {
