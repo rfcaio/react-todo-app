@@ -4,9 +4,14 @@ const TodoList = ({ todos }) => (
   <div className="panel panel-default">
     <div className="list-group">
       {
-        todos.map(
-          ({ id, description }) => <div className="list-group-item" key={id}>{description}</div>
-        )
+        todos.map(todo => {
+          let { id, description, done } = todo
+          return (
+            <div className="list-group-item" key={id}>
+              {done ? <s>{description}</s> : description}
+            </div>
+          )
+        })
       }
     </div>
   </div>
