@@ -9,18 +9,18 @@ class Todo extends React.Component {
 
     this.state = {
       todos: [
-        { id: 0, text: 'Learn JavaScript' },
-        { id: 1, text: 'Learn CSS' },
-        { id: 2, text: 'Learn React' },
-        { id: 3, text: 'Learn Haskell' },
-        { id: 4, text: 'Learn Python' }
+        { id: 0, description: 'Learn JavaScript', done: true },
+        { id: 1, description: 'Learn CSS', done: true },
+        { id: 2, description: 'Learn React', done: false },
+        { id: 3, description: 'Learn Haskell', done: false },
+        { id: 4, description: 'Learn Python', done: false }
       ]
     }
   }
 
-  addTodo (text) {
+  addTodo (description) {
     this.setState(state => {
-      let todos = [...state.todos, { id: Date.now(), text }]
+      let todos = [...state.todos, { id: Date.now(), description, done: false }]
       return { todos }
     })
   }
@@ -31,7 +31,7 @@ class Todo extends React.Component {
         <h1>Todo App</h1>
         <div className="row">
           <div className="col-md-12">
-            <TodoForm onSubmitForm={text => { this.addTodo(text) }} />
+            <TodoForm onSubmitForm={description => { this.addTodo(description) }} />
             <TodoList todos={this.state.todos} />
           </div>
         </div>

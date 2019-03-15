@@ -5,7 +5,7 @@ const TodoList = ({ todos }) => (
     <div className="list-group">
       {
         todos.map(
-          ({ id, text }) => <div className="list-group-item" key={id}>{text}</div>
+          ({ id, description }) => <div className="list-group-item" key={id}>{description}</div>
         )
       }
     </div>
