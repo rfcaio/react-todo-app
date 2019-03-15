@@ -27,10 +27,10 @@ class Todo extends React.Component {
 
   render () {
     return (
-      <main className="container">
+      <main>
         <h1>Todo App</h1>
-        <div className="row">
-          <div className="col-md-12">
+        <div>
+          <div>
             <TodoForm onSubmitForm={description => { this.addTodo(description) }} />
             <TodoList todos={this.state.todos} />
           </div>
