@@ -15,7 +15,8 @@ class Todo extends React.Component {
         { id: 2, description: 'Learn React', done: false },
         { id: 3, description: 'Learn Haskell', done: false },
         { id: 4, description: 'Learn Python', done: false }
-      ]
+      ],
+      filter: 'SHOW_ALL'
     }
   }
 
@@ -26,15 +27,35 @@ class Todo extends React.Component {
     })
   }
 
+  changeFilter (event) {
+    let filter = event.target.value
+    this.setState(() => ({ filter }))
+  }
+
   render () {
+    const filterTodos = (todos, filter) => {
+      switch (filter) {
+        case 'SHOW_COMPLETED':
+          return todos.filter(todo => todo.done)
+        case 'SHOW_PENDING':
+          return todos.filter(todo => !todo.done)
+        default:
+          return todos
+      }
+    }
+
+    let todos = filterTodos(this.state.todos, this.state.filter)
+
     return (
       <main>
         <h1>Todo App</h1>
         <div>
           <div>
             <TodoForm onSubmitForm={description => { this.addTodo(description) }} />
-            <TodoFilter />
-            <TodoList todos={this.state.todos} />
+            <TodoFilter
+              filter={this.state.filter}
+              onChangeFilter={event => { this.changeFilter(event) }} />
+            <TodoList todos={todos} />
           </div>
         </div>
       </main>
