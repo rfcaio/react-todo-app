@@ -1,5 +1,6 @@
 import React from 'react'
 
+import TodoFilter from './TodoFilter'
 import TodoForm from './TodoForm'
 import TodoList from './TodoList'
 
@@ -32,6 +33,7 @@ class Todo extends React.Component {
         <div>
           <div>
             <TodoForm onSubmitForm={description => { this.addTodo(description) }} />
+            <TodoFilter />
             <TodoList todos={this.state.todos} />
           </div>
         </div>
