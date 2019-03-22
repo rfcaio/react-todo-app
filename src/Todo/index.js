@@ -32,6 +32,14 @@ class Todo extends React.Component {
     this.setState(() => ({ filter }))
   }
 
+  toggleDone (id) {
+    let todos = this.state.todos.map(todo => {
+      let { done } = todo
+      return todo.id === id ? Object.assign({}, todo, { done: !done }) : todo
+    })
+    this.setState(() => ({ todos }))
+  }
+
   render () {
     const filterTodos = (todos, filter) => {
       switch (filter) {
@@ -55,7 +63,7 @@ class Todo extends React.Component {
             <TodoFilter
               filter={this.state.filter}
               onChangeFilter={event => { this.changeFilter(event) }} />
-            <TodoList todos={todos} />
+            <TodoList todos={todos} onToggleDone={id => { this.toggleDone(id) }} />
           </div>
         </div>
       </main>

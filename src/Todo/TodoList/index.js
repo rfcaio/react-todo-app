@@ -1,12 +1,12 @@
 import React from 'react'
 
-const TodoList = ({ todos }) => (
+const TodoList = ({ todos, onToggleDone }) => (
   <div>
     {
       todos.map(todo => {
         let { id, description, done } = todo
         return (
-          <div key={id}>
+          <div key={id} style={{ cursor: 'pointer' }} onClick={() => { onToggleDone(id) }}>
             {done ? <s>{description}</s> : description}
           </div>
         )
