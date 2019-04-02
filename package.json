@@ -1,6 +1,9 @@
 {
-  "author": "Caio Rodrigues <@rfcaio>",
-  "name": "react-boilerplate",
+  "author": {
+    "email": "rfcaio90@gmail.com",
+    "name": "Caio Rodrigues Fernandes",
+    "url": "https://github.com/rfcaio"
+  },
   "devDependencies": {
     "@babel/core": "^7.1.2",
     "@babel/preset-env": "^7.1.0",
@@ -15,7 +18,16 @@
     "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.1.10"
   },
+  "homepage": "https://github.com/rfcaio/react-todo-app#readme",
+  "license": "MIT",
+  "name": "react-todo-app",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rfcaio/react-todo-app.git"
+  },
   "scripts": {
     "start": "./node_modules/.bin/webpack-dev-server --config webpack.dev.js"
-  }
+  },
+  "version": "1.0.0"
 }
