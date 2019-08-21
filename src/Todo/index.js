@@ -1,8 +1,8 @@
 import React from 'react'
 
-import TodoFilter from './TodoFilter'
-import TodoForm from './TodoForm'
-import TodoList from './TodoList'
+import TodoFilter from './Filter'
+import TodoForm from './Form'
+import TodoList from './List'
 
 class Todo extends React.Component {
   constructor () {

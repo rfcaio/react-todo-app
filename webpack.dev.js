@@ -5,6 +5,7 @@ module.exports = {
   devServer: {
     contentBase: './dist',
     inline: true,
+    overlay: true,
     port: 8001
   },
   devtool: 'inline-source-map',
@@ -22,7 +23,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: 'index.html'
+      template: 'src/index.html'
     })
   ],
   watch: true
