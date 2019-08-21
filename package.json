@@ -30,7 +30,7 @@
     "url": "https://github.com/rfcaio/react-todo-app.git"
   },
   "scripts": {
-    "start": "./node_modules/.bin/webpack-dev-server --config webpack.dev.js"
+    "start": "webpack-dev-server --config webpack.dev.js"
   },
   "version": "1.0.0"
 }
