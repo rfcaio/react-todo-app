@@ -2,6 +2,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const merge = require('webpack-merge')
 const path = require('path')
 
+const parts = require('./webpack.parts')
+
 const commonConfig = merge([
   {
     devServer: {
@@ -14,7 +16,6 @@ const commonConfig = merge([
     entry: './src/index.js',
     module: {
       rules: [
-        { test: /\.css$/, use: ['style-loader', 'css-loader'] },
         { exclude: /node_modules/, test: /\.js$/, use: ['babel-loader'] }
       ]
     },
@@ -31,6 +32,8 @@ const commonConfig = merge([
   }
 ])
 
-const developmentConfig = merge([])
+const developmentConfig = merge([
+  parts.loadCSS()
+])
 
 module.exports = mode => merge(commonConfig, developmentConfig, { mode })
