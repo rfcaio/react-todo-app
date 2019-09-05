@@ -6,7 +6,6 @@ const parts = require('./webpack.parts')
 
 const commonConfig = merge([
   {
-    devtool: 'inline-source-map',
     entry: './src/index.js',
     output: {
       filename: 'bundle.js',
@@ -24,6 +23,7 @@ const commonConfig = merge([
 ])
 
 const developmentConfig = merge([
+  parts.generateSourceMaps(),
   parts.loadCSS()
 ])
 

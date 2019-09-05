@@ -11,6 +11,8 @@ exports.devServer = (options = {}) => {
   }
 }
 
+exports.generateSourceMaps = (devtool = 'inline-source-map') => ({ devtool })
+
 exports.loadCSS = () => {
   return {
     module: {
