@@ -27,6 +27,19 @@ const developmentConfig = merge([
 ])
 
 const productionConfig = merge([
+  {
+    optimization: {
+      splitChunks: {
+        cacheGroups: {
+          commons: {
+            chunks: 'initial',
+            name: 'vendor',
+            test: /[\\/]node_modules[\\/]/
+          }
+        }
+      }
+    }
+  },
   parts.extractCSS(),
   parts.generateSourceMaps('source-map')
 ])
