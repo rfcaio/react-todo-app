@@ -18,7 +18,16 @@ exports.extractCSS = () => {
       rules: [
         {
           test: /\.css$/,
-          use: [MiniCSSExtractPlugin.loader, 'css-loader']
+          use: [
+            MiniCSSExtractPlugin.loader,
+            'css-loader',
+            {
+              loader: 'postcss-loader',
+              options: {
+                plugins: () => [require('autoprefixer')()]
+              }
+            }
+          ]
         }
       ]
     },
