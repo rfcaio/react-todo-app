@@ -1,4 +1,16 @@
 
+exports.devServer = (options = {}) => {
+  return {
+    devServer: Object.assign({
+      contentBase: './dist',
+      inline: true,
+      overlay: true,
+      port: 8001,
+      stats: 'errors-only'
+    }, options)
+  }
+}
+
 exports.loadCSS = () => {
   return {
     module: {

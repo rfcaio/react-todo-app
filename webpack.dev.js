@@ -6,12 +6,6 @@ const parts = require('./webpack.parts')
 
 const commonConfig = merge([
   {
-    devServer: {
-      contentBase: './dist',
-      inline: true,
-      overlay: true,
-      port: 8001
-    },
     devtool: 'inline-source-map',
     entry: './src/index.js',
     output: {
@@ -25,6 +19,7 @@ const commonConfig = merge([
     ],
     watch: true
   },
+  parts.devServer(),
   parts.loadJS()
 ])
 
