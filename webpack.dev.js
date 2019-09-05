@@ -15,8 +15,7 @@ const commonConfig = merge([
       new HtmlWebpackPlugin({
         template: 'src/index.html'
       })
-    ],
-    watch: true
+    ]
   },
   parts.devServer(),
   parts.loadJS()
@@ -27,4 +26,12 @@ const developmentConfig = merge([
   parts.loadCSS()
 ])
 
-module.exports = mode => merge(commonConfig, developmentConfig, { mode })
+const productionConfig = merge([
+  parts.generateSourceMaps('source-map')
+])
+
+module.exports = mode => merge(
+  commonConfig,
+  mode === 'development' ? developmentConfig : productionConfig,
+  { mode }
+)
