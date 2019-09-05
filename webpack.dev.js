@@ -27,6 +27,7 @@ const developmentConfig = merge([
 ])
 
 const productionConfig = merge([
+  parts.extractCSS(),
   parts.generateSourceMaps('source-map')
 ])
 
