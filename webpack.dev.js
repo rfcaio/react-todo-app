@@ -17,11 +17,11 @@ const commonConfig = merge([
       })
     ]
   },
-  parts.devServer(),
   parts.loadJS()
 ])
 
 const developmentConfig = merge([
+  parts.devServer(),
   parts.generateSourceMaps(),
   parts.loadCSS()
 ])
