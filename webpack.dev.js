@@ -40,6 +40,7 @@ const productionConfig = merge([
       }
     }
   },
+  parts.clean(),
   parts.extractCSS(),
   parts.generateSourceMaps('source-map')
 ])
