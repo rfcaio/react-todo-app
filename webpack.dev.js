@@ -14,11 +14,6 @@ const commonConfig = merge([
     },
     devtool: 'inline-source-map',
     entry: './src/index.js',
-    module: {
-      rules: [
-        { exclude: /node_modules/, test: /\.js$/, use: ['babel-loader'] }
-      ]
-    },
     output: {
       filename: 'bundle.js',
       path: path.resolve(__dirname, './dist')
@@ -29,7 +24,8 @@ const commonConfig = merge([
       })
     ],
     watch: true
-  }
+  },
+  parts.loadJS()
 ])
 
 const developmentConfig = merge([

@@ -11,3 +11,17 @@ exports.loadCSS = () => {
     }
   }
 }
+
+exports.loadJS = () => {
+  return {
+    module: {
+      rules: [
+        {
+          exclude: /node_modules/,
+          test: /\.js$/,
+          use: ['babel-loader']
+        }
+      ]
+    }
+  }
+}
