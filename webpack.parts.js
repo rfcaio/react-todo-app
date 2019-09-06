@@ -1,5 +1,6 @@
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const MiniCSSExtractPlugin = require('mini-css-extract-plugin')
+const TerserWebpackPlugin = require('terser-webpack-plugin')
 
 exports.clean = () => {
   return {
@@ -73,6 +74,14 @@ exports.loadJS = () => {
           use: ['babel-loader']
         }
       ]
+    }
+  }
+}
+
+exports.minifyJS = () => {
+  return {
+    optimization: {
+      minimizer: [new TerserWebpackPlugin({ sourceMap: true })]
     }
   }
 }
