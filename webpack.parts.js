@@ -1,5 +1,7 @@
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const cssnano = require('cssnano')
 const MiniCSSExtractPlugin = require('mini-css-extract-plugin')
+const OptimizeCSSAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin')
 const TerserWebpackPlugin = require('terser-webpack-plugin')
 
 exports.clean = () => {
@@ -75,6 +77,18 @@ exports.loadJS = () => {
         }
       ]
     }
+  }
+}
+
+exports.minifyCSS = (options = {}) => {
+  return {
+    plugins: [
+      new OptimizeCSSAssetsWebpackPlugin({
+        cssProcessor: cssnano,
+        cssProcessorOptions: options,
+        canPrint: false
+      })
+    ]
   }
 }
 

@@ -43,6 +43,12 @@ const productionConfig = merge([
   parts.clean(),
   parts.extractCSS(),
   parts.generateSourceMaps('source-map'),
+  parts.minifyCSS({
+    discardComments: {
+      removeAll: true
+    },
+    safe: true
+  }),
   parts.minifyJS()
 ])
 
