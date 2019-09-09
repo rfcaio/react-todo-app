@@ -45,7 +45,7 @@ exports.extractCSS = () => {
     },
     plugins: [
       new MiniCSSExtractPlugin({
-        filename: '[name].css'
+        filename: '[name].[contenthash].css'
       })
     ]
   }

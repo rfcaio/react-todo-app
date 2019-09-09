@@ -1,16 +1,10 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const merge = require('webpack-merge')
-const path = require('path')
 
 const parts = require('./webpack.parts')
 
 const commonConfig = merge([
   {
-    entry: './src/index.js',
-    output: {
-      filename: 'bundle.js',
-      path: path.resolve(__dirname, './dist')
-    },
     plugins: [
       new HtmlWebpackPlugin({
         template: 'src/index.html'
@@ -28,7 +22,16 @@ const developmentConfig = merge([
 
 const productionConfig = merge([
   {
+    output: {
+      chunkFilename: '[name].[chunkhash].js',
+      filename: '[name].[chunkhash].js'
+    }
+  },
+  {
     optimization: {
+      runtimeChunk: {
+        name: 'manifest'
+      },
       splitChunks: {
         cacheGroups: {
           commons: {
