@@ -5,6 +5,11 @@ const parts = require('./webpack.parts')
 
 const commonConfig = merge([
   {
+    output: {
+      publicPath: '/'
+    }
+  },
+  {
     plugins: [
       new HtmlWebpackPlugin({
         template: 'src/index.html'
