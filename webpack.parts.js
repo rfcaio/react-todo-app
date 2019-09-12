@@ -4,6 +4,8 @@ const MiniCSSExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCSSAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin')
 const TerserWebpackPlugin = require('terser-webpack-plugin')
 
+require('dotenv/config')
+
 exports.clean = () => {
   return {
     plugins: [
@@ -18,7 +20,7 @@ exports.devServer = (options = {}) => {
       contentBase: './dist',
       inline: true,
       overlay: true,
-      port: 8001,
+      port: process.env.PORT || 8001,
       stats: 'errors-only'
     }, options)
   }
