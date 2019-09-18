@@ -22,7 +22,8 @@ const commonConfig = merge([
 const developmentConfig = merge([
   parts.devServer(),
   parts.generateSourceMaps(),
-  parts.loadCSS()
+  parts.loadCSS(),
+  parts.useErrorOverlay()
 ])
 
 const productionConfig = merge([

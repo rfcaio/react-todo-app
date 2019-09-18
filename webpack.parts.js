@@ -1,5 +1,6 @@
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const cssnano = require('cssnano')
+const ErrorOverlayWebpackPlugin = require('error-overlay-webpack-plugin')
 const MiniCSSExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCSSAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin')
 const TerserWebpackPlugin = require('terser-webpack-plugin')
@@ -19,7 +20,7 @@ exports.devServer = (options = {}) => {
     devServer: Object.assign({
       contentBase: './dist',
       inline: true,
-      overlay: true,
+      overlay: false,
       port: process.env.PORT || 8001,
       stats: 'errors-only'
     }, options)
@@ -99,5 +100,11 @@ exports.minifyJS = () => {
     optimization: {
       minimizer: [new TerserWebpackPlugin({ sourceMap: true })]
     }
+  }
+}
+
+exports.useErrorOverlay = () => {
+  return {
+    plugins: [new ErrorOverlayWebpackPlugin()]
   }
 }
