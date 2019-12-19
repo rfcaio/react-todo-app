@@ -1,3 +1,3 @@
 # About
 
-A simple todo app made with React.
+> A simple todo app made with React.
