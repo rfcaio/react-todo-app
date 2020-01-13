@@ -55,7 +55,7 @@ class Todo extends React.Component {
     let todos = filterTodos(this.state.todos, this.state.filter)
 
     return (
-      <main>
+      <main data-testid="todo">
         <h1>Todo App</h1>
         <div>
           <div>
