@@ -17,7 +17,11 @@ const TodoList = ({ todos, onToggleDone }) => (
         let { id, description, done } = todo
         return (
           <div key={id} style={{ cursor: 'pointer' }} onClick={() => { onToggleDone(id) }}>
-            {done ? <s>{description}</s> : description}
+            {
+              done
+                ? <s className="todo-list-item-done">{description}</s>
+                : description
+            }
           </div>
         )
       })
