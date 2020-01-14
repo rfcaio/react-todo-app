@@ -11,7 +11,11 @@ const defaultProps = {
 }
 
 const TodoFilter = ({ filter, onChangeFilter }) => (
-  <select value={filter} onChange={event => { onChangeFilter(event) }}>
+  <select
+    data-testid="todo-filter"
+    value={filter}
+    onChange={event => { onChangeFilter(event) }}
+  >
     <option value="SHOW_ALL">Show all</option>
     <option value="SHOW_COMPLETED">Show completed</option>
     <option value="SHOW_PENDING">Show pending</option>
