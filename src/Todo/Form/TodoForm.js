@@ -1,4 +1,11 @@
 import React from 'react'
+import PropTypes from 'prop-types'
+
+const propTypes = {
+  onSubmitForm: PropTypes.func.isRequired
+}
+
+const defaultProps = {}
 
 class TodoForm extends React.Component {
   constructor (props) {
@@ -7,7 +14,7 @@ class TodoForm extends React.Component {
   }
 
   onChangeInput (event) {
-    let { name, value } = event.target
+    const { name, value } = event.target
     this.setState({ [name]: value })
   }
 
@@ -18,7 +25,7 @@ class TodoForm extends React.Component {
   }
 
   render () {
-    let { description } = this.state
+    const { description } = this.state
     return (
       <form onSubmit={event => { this.onSubmitForm(event) }}>
         <label>Description</label>
@@ -32,5 +39,8 @@ class TodoForm extends React.Component {
     )
   }
 }
+
+TodoForm.propTypes = propTypes
+TodoForm.defaultProps = defaultProps
 
 export default TodoForm
