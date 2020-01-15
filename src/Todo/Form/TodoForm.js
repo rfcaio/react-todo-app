@@ -27,9 +27,13 @@ class TodoForm extends React.Component {
   render () {
     const { description } = this.state
     return (
-      <form onSubmit={event => { this.onSubmitForm(event) }}>
-        <label>Description</label>
+      <form
+        data-testid="todo-form"
+        onSubmit={event => { this.onSubmitForm(event) }}
+      >
+        <label htmlFor="description">Description</label>
         <input
+          id="description"
           name="description"
           type="text"
           value={description}
