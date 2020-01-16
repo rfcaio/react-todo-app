@@ -28,6 +28,13 @@ describe('TodoList', () => {
   })
 
   describe('on render', () => {
+    test('show `No todos to list.` when todo list is empty', () => {
+      const { getByText } = render(
+        <TodoList todos={[]} onToggleDone={() => null} />
+      )
+      expect(getByText('No todos to list.')).toBeInTheDocument()
+    })
+
     test('list todos', () => {
       const { getByText } = render(
         <TodoList todos={todos} onToggleDone={() => null} />

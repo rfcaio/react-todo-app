@@ -13,18 +13,26 @@ const defaultProps = {
 const TodoList = ({ todos, onToggleDone }) => (
   <div>
     {
-      todos.map(todo => {
-        let { id, description, done } = todo
-        return (
-          <div key={id} style={{ cursor: 'pointer' }} onClick={() => { onToggleDone(id) }}>
-            {
-              done
-                ? <s className="todo-list-item-done">{description}</s>
-                : description
-            }
-          </div>
+      todos.length > 0
+        ? (
+          todos.map(todo => {
+            const { id, description, done } = todo
+            return (
+              <div
+                key={id}
+                style={{ cursor: 'pointer' }}
+                onClick={() => { onToggleDone(id) }}
+              >
+                {
+                  done
+                    ? <s className="todo-list-item-done">{description}</s>
+                    : description
+                }
+              </div>
+            )
+          })
         )
-      })
+        : 'No todos to list.'
     }
   </div>
 )
