@@ -1,4 +1,7 @@
 {
+  "name": "react-todo-app",
+  "version": "0.0.0",
+  "description": "A simple todo app made with React.",
   "author": {
     "email": "rfcaio90@gmail.com",
     "name": "Caio Rodrigues Fernandes",
@@ -8,7 +11,6 @@
     "react": "16.12.0",
     "react-dom": "16.12.0"
   },
-  "description": "A simple todo app made with React.",
   "devDependencies": {
     "@babel/core": "7.1.2",
     "@babel/plugin-syntax-dynamic-import": "7.2.0",
@@ -37,7 +39,6 @@
   },
   "homepage": "https://github.com/rfcaio/react-todo-app#readme",
   "license": "MIT",
-  "name": "react-todo-app",
   "private": true,
   "repository": {
     "type": "git",
@@ -46,7 +47,7 @@
   "scripts": {
     "build": "webpack --env production",
     "start": "webpack-dev-server --env development",
-    "test": "jest --watch"
-  },
-  "version": "1.0.0"
+    "test": "jest --watch",
+    "test:coverage": "jest --coverage"
+  }
 }
